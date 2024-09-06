@@ -7,20 +7,117 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+
+    font-family: "Prompt", sans-serif;
 }
 .h {
     &-icons {
         @include flex-center;
+        padding-block: 15px;
+
+        background-color: $pink;
 
         &-ul {
             @include flex-center;
             gap: 20px;
+
+            li {
+                a {
+                    i{
+                        display: block;
+                        font-size: 20px;
+                        color: $white;
+                    }
+                    
+                }
+            }
         }
     }
     &-menu {
+        @include flex-center;
+        padding-block: 30px;
 
+        &-logo {
+            @include flex-center;
+
+            
+
+            img {
+                max-width: 90%;
+            }
+        }
+        &-icon {
+            display: none;
+        }
     }
     &-nav {
+        @include flex-center;
+        opacity: 1;
 
+        &-ul {
+            @include flex-center;
+            gap: 20px;
+
+            padding: 15px 60px;
+
+            border-radius: 30px;
+            border: 4px solid $black;
+
+            li {
+                
+                a {
+                    color: $black;
+                    padding: 15px 10px;
+
+                    span {
+                        font-weight: 600;
+                        text-transform: uppercase;
+                    }
+                    i {
+                        font-size: 14px;
+                    }
+                }
+
+                .li-bar {
+                    cursor: default;
+                }
+            }
+            &-li-services{
+                position: relative;
+                &:hover .services{
+                    top: 39px;
+                    opacity: 1;
+                    pointer-events: all;
+                }
+            }
+            &-li-portfolio {
+                position: relative;
+                &:hover .portfolio{
+                    top: 39px;
+                    opacity: 1;
+                    pointer-events: all;
+                }
+            }
+
+            .services, .portfolio {
+                position: absolute;
+                top: 60px;
+                
+                display: flex;
+                width: 200%;
+                flex-direction: column;
+
+                border: 4px solid $black;
+                border-radius: 0 0 10px 10px;
+
+                opacity: 0;
+                pointer-events: none;
+
+                background-color: $white;
+
+                transition: top 0.4s;
+            }
+            
+        }
     }
 }

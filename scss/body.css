@@ -4,16 +4,99 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  font-family: "Prompt", sans-serif;
 }
 
 .h-icons {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-block: 15px;
+  background-color: #F2055C;
 }
 .h-icons-ul {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
+}
+.h-icons-ul li a i {
+  display: block;
+  font-size: 20px;
+  color: #F9F9F9;
+}
+.h-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 30px;
+}
+.h-menu-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.h-menu-logo img {
+  max-width: 90%;
+}
+.h-menu-icon {
+  display: none;
+}
+.h-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+.h-nav-ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 60px;
+  border-radius: 30px;
+  border: 4px solid #07090D;
+}
+.h-nav-ul li a {
+  color: #07090D;
+  padding: 15px 10px;
+}
+.h-nav-ul li a span {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.h-nav-ul li a i {
+  font-size: 14px;
+}
+.h-nav-ul li .li-bar {
+  cursor: default;
+}
+.h-nav-ul-li-services {
+  position: relative;
+}
+.h-nav-ul-li-services:hover .services {
+  top: 39px;
+  opacity: 1;
+  pointer-events: all;
+}
+.h-nav-ul-li-portfolio {
+  position: relative;
+}
+.h-nav-ul-li-portfolio:hover .portfolio {
+  top: 39px;
+  opacity: 1;
+  pointer-events: all;
+}
+.h-nav-ul .services, .h-nav-ul .portfolio {
+  position: absolute;
+  top: 60px;
+  display: flex;
+  width: 200%;
+  flex-direction: column;
+  border: 4px solid #07090D;
+  border-radius: 0 0 10px 10px;
+  opacity: 0;
+  pointer-events: none;
+  background-color: #F9F9F9;
+  transition: top 0.4s;
 }/*# sourceMappingURL=body.css.map */

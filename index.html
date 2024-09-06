@@ -48,7 +48,7 @@
 
         <!-- Menu -->
         <div class="h-menu">
-            <div class="h-menu-logo">
+            <div class="h-menu-logo" id="logo">
                 <img src="images/logo.png" alt="logo">
             </div>
             <div class="h-menu-icon">
@@ -57,31 +57,63 @@
         </div>
 
         <!-- Navigation -->
-        <nav class="h-nav">
+        <nav class="h-nav" id="nav">
             <ul class="h-nav-ul">
                 <li>
                     <a href="#">
                         <span>Home</span>
                     </a>
                 </li>
+
+                <li><span class="li-bar">/</span></li>
+
                 <li>
                     <a href="#">
                         <span>Sobre</span>
                     </a>
                 </li>
 
-                <li class="h-nav-ul-li">
+                <li><span class="li-bar">/</span></li>
+
+                <!-- Submenu -->
+                <li class="h-nav-ul-li-services">
                     <a href="#">
-                        <span>Notícias</span>
+                        <span>Serviços</span>
+                        <i class="fa-solid fa-caret-down"></i>
                     </a>
+                    <div class="services">
+                        <a href="#">
+                            <span>Detalhes</span>
+                        </a>
+                        <a href="#">
+                            <span>F.A.Q.</span>
+                        </a>
+                    </div>
                 </li>
 
-                <li class="h-nav-ul-li">
+                <li><span class="li-bar">/</span></li>
+
+                <!-- Submenu -->
+                <li class="h-nav-ul-li-portfolio">
                     <a href="#">
                         <span>Portfólio</span>
+                        <i class="fa-solid fa-caret-down"></i>
                     </a>
+                    <div class="portfolio">
+                        <a href="#">
+                            <span>Menu Dropdown</span>
+                        </a>
+                        <a href="#">
+                            <span>Grid Galeria</span>
+                        </a>
+                        <a href="#">
+                            <span>Atualizações</span>
+                        </a>
+                    </div>
                 </li>
 
+                <li><span class="li-bar">/</span></li>
+                
                 <li>
                     <a href="#">
                         <span>Contato</span>
