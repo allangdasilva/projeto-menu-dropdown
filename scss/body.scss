@@ -11,255 +11,117 @@
     font-family: "Prompt", sans-serif;
 }
 .h {
-    &-icons {
-        @include flex-center;
-        padding-block: 15px;
 
-        background-color: $pink;
+    &-n {
 
-        &-ul {
+        &-icons {
             @include flex-center;
-            gap: 20px;
-
-            li {
-                a {
-                    i{
-                        display: block;
-                        font-size: 20px;
-                        color: $white;
-                    }
-                    
-                }
-            }
-        }
-    }
-    &-menu {
-        @include flex-center;
-        padding-block: 30px;
-
-        &-logo {
-            @include flex-center;
-
-            img {
-                max-width: 90%;
-            }
-        }
-        &-icon {
-            display: none;
-        }
-    }
-    &-nav {
-        @include flex-center;
-        
-        &-ul {
-            @include flex-center;
-            gap: 20px;
-
-            padding: 15px 60px;
-
-            border-radius: 30px;
-            border: 4px solid $black;
-            
-            background-color: #fff;
-            
-            li {
-                
-                a {
-                    color: $black;
-                    padding: 15px 10px;
-
-                    span {
-                        font-weight: 600;
-                        text-transform: uppercase;
-                    }
-                    i {
-                        font-size: 14px;
+            padding-block: 15px;
+    
+            background-color: $pink;
+    
+            &-ul {
+                @include flex-center;
+                gap: 20px;
+    
+                li {
+                    a {
+                        i{
+                            display: block;
+                            font-size: 20px;
+                            color: $white;
+                        }
+                        
                     }
                 }
-
-                .li-bar {
-                    cursor: default;
-                }
             }
-            &-li-services{
-                position: relative;
-                &:hover .services{
-                    top: 39px;
-                    opacity: 1;
-                    pointer-events: all;
-                }
-            }
-            &-li-portfolio {
-                position: relative;
-                &:hover .portfolio{
-                    top: 39px;
-                    opacity: 1;
-                    pointer-events: all;
-                }
-            }
-
-            .services, .portfolio {
-                position: absolute;
-                top: 60px;
-                
-                display: flex;
-                width: 200%;
-                flex-direction: column;
-
-                border: 4px solid $black;
-                border-radius: 0 0 10px 10px;
-
-                opacity: 0;
-                pointer-events: none;
-
-                background-color: $white;
-
-                transition: top 0.4s;
-            }
-            
         }
-    }
-}
-
-@media screen and (max-width: 900px) {
-    .h {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-        'menu-area'
-        'icons-area'
-        'nav-area'
-        ;
-       
         &-menu {
-            grid-area: menu-area;
-            justify-content: space-between;
-            padding: 15px;
-
+            @include flex-center;
+            padding-block: 30px;
+    
             &-logo {
+                @include flex-center;
+    
                 img {
-                    max-width: 80%
+                    max-width: 90%;
                 }
             }
             &-icon {
-                @include flex-center;
-
-                position: relative;
-                height: 45px;
-                width: 45px;
-
-                &-button {
-                    position: absolute;
-                    height: 3px;
-                    width: 30px;
-    
-                    border: none;
-                    border-radius: 5px;
-    
-                    background-color: $black;
-                    transition-duration: 0.2s;
-    
-                    &::after {
-                        content: '';
-                        position: absolute;
-                        left: 0; 
-                        bottom: 9px; 
-    
-                        height: 3px;
-                        width: 30px;
-                        border-radius: 5px;
-    
-                        background-color: $black; 
-                        transition-duration: 0.4s;           
-                    }
-                    &::before {
-                        content: '';
-                        position: absolute;
-                        top: 9px;
-                        left: 0;
-    
-                        height: 3px;
-                        width: 30px;
-                        border-radius: 5px;
-    
-                        background-color: $black;
-                        transition-duration: 0.4s;
-                    }
-                }
-                &-click {
-                    position: absolute;
-                    height: 25px;
-                    width: 30px;
-                    cursor: pointer;
-                }
+                display: none;
             }
-        }
-
-        &-icons {
-            clip-path: inset(0 0 100% 0);
-            transition: 0.2s;
-        }
-        &-icons-mobile {
-            clip-path: inset(0 0 0 0);
         }
         &-nav {
-            clip-path: inset(0 100% 0 0);
-            transition-delay: 0.2s;
-            transition: 0.4s;
-            justify-content: flex-start;
+            @include flex-center;
             
-            .h-nav-ul {
-                position: relative;
-                align-items: flex-start;
-                flex-direction: column;
-                gap: 0;
-
-                width: 100%;
-                padding: 0;
-
-                border: none;
-
+            &-ul {
+                @include flex-center;
+                gap: 20px;
+    
+                padding: 15px 60px;
+    
+                border-radius: 30px;
+                border: 4px solid $black;
+                
+                background-color: #fff;
+                
                 li {
-                    width: 100%;
-
+                    
                     a {
-                        @include flex-center;
-                        justify-content: space-between;
-                        width: 100%;
-
-                        padding: 22.5px;
+                        color: $black;
+                        padding: 15px 10px;
+    
+                        span {
+                            font-weight: 600;
+                            text-transform: uppercase;
+                        }
+                        i {
+                            font-size: 14px;
+                        }
+                    }
+    
+                    .li-bar {
+                        cursor: default;
                     }
                 }
-                .li-bar {
-                    display: none;
+                &-li-services{
+                    position: relative;
+                    &:hover .services{
+                        top: 39px;
+                        opacity: 1;
+                        pointer-events: all;
+                    }
                 }
+                &-li-portfolio {
+                    position: relative;
+                    &:hover .portfolio{
+                        top: 39px;
+                        opacity: 1;
+                        pointer-events: all;
+                    }
+                }
+    
                 .services, .portfolio {
-                    position: static;
+                    position: absolute;
+                    top: 60px;
                     
-                    width: 100%;
-
-                    margin-left: 15px;
-                    
-                    opacity: 1;
-
-                    border: 2px solid $black;
-                    border-top: none;
-                    border-right: none;
-                    border-bottom: none;
-                    border-radius: 0;
-                    
-                    background-color: $blue;
-                    
-                    transition: margin-top 0.2s;
+                    display: flex;
+                    width: 200%;
+                    flex-direction: column;
+    
+                    border: 4px solid $black;
+                    border-radius: 0 0 10px 10px;
+    
+                    opacity: 0;
+                    pointer-events: none;
+    
+                    background-color: $white;
+    
+                    transition: top 0.4s;
                 }
-                .services-mobile, .portfolio-mobile {
-                    
-                }
+                
             }
         }
-        &-nav-mobile {
-            clip-path: inset(0 0 0 0);
-            transition-delay: 0.2s;
-        }
     }
+    
 }
