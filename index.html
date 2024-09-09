@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="scss/body.css">
 </head>
 <body>
-    <header class="h">
-        <nav class="h-n">
+    <header class="header">
+        <nav class="nav-container">
             <!-- Icons -->
-            <div class="h-n-icons">
-                <ul class="h-n-icons-ul">
+            <div class="icons">
+                <ul class="icons-ul">
                     <li>
                         <a href="#">
                             <i class="fa-brands fa-facebook-f"></i>
@@ -47,18 +47,18 @@
                 </ul>
             </div>
             <!-- Menu -->
-            <div class="h-n-menu">
-                <div class="h-n-menu-logo" id="logo">
+            <div class="menu">
+                <div class="menu-logo" id="logo">
                     <img src="images/logo.png" alt="logo">
                 </div>
-                <div class="h-n-menu-icon">
-                    <button class="h-menu-icon-button"></button>
-                    <div class="h-menu-icon-click"></div>
+                <div class="menu-icon">
+                    <button class="icon-button"></button>
+                    <div class="icon-click"></div>
                 </div>
             </div>
-            <!-- Navigation -->
-            <div class="h-n-nav" id="nav">
-                <ul class="h-n-nav-ul">
+            <!-- Nav -->
+            <div class="nav" id="nav">
+                <ul class="nav-ul">
                     <li>
                         <a href="#">
                             <span>Home</span>
@@ -71,39 +71,52 @@
                         </a>
                     </li>
                     <li><span class="li-bar">/</span></li>
+
                     <!-- Submenu -->
-                    <li class="h-n-nav-ul-li-services">
-                        <a href="#">
+                    <li class="li-services">
+                        <div class="dropdown-btn">
                             <span>Serviços</span>
                             <i class="fa-solid fa-caret-down"></i>
-                        </a>
-                        <div class="services">
-                            <a href="#">
-                                <span>Detalhes</span>
-                            </a>
-                            <a href="#">
-                                <span>F.A.Q.</span>
-                            </a>
                         </div>
+                        <ul class="services">
+                            <li>
+                                <a href="#">
+                                    <span>Detalhes</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>F.A.Q.</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
+
                     <li><span class="li-bar">/</span></li>
+                    
                     <!-- Submenu -->
-                    <li class="h-n-nav-ul-li-portfolio">
-                        <a href="#">
+                    <li class="li-portfolio">
+                        <div class="dropdown-btn">
                             <span>Portfólio</span>
                             <i class="fa-solid fa-caret-down"></i>
-                        </a>
-                        <div class="portfolio">
-                            <a href="#">
-                                <span>Menu Dropdown</span>
-                            </a>
-                            <a href="#">
-                                <span>Grid Galeria</span>
-                            </a>
-                            <a href="#">
-                                <span>Atualizações</span>
-                            </a>
                         </div>
+                        <ul class="portfolio">
+                            <li>
+                                <a href="#">
+                                    <span>Menu Dropdown</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Grid Galeria</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Atualizações</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li><span class="li-bar">/</span></li>
             

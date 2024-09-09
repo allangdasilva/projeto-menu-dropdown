@@ -3,3 +3,12 @@
     justify-content: center;
     align-items: center;
 }
+@mixin submenu-active{
+    opacity: 1;
+    transition: max-height 0.4s ease-out;
+}
+@mixin mobile {
+    @media screen and (max-width: 960px) {
+        @content;
+    }
+}

@@ -1,7 +1,17 @@
-$('.h-menu-icon-click').on('click', function(){
-    $('.h-nav').toggleClass('h-nav-mobile')
-    $('.h-icons').toggleClass('h-icons-mobile')
+
+// ------ Menu icon -------
+$('.icon-click').on('click', function(){
+    $('.icons').toggleClass('icons-active')
+    $('.nav').toggleClass('nav-active')
+    $('.icon-button').toggleClass('icon-button-active')
 })
-$('.h-nav-ul-li-portfolio').on('click', function(){
-    
+
+// ------ Services click -------
+$('.li-services').on('click', function(){
+    $('.services').toggleClass('services-active')
+})
+
+// ------ Portfolio click -------
+$('.li-portfolio').on('click', function(){
+    $('.portfolio').toggleClass('portfolio-active')
 })
