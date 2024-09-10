@@ -10,10 +10,11 @@
 
     font-family: "Prompt", sans-serif;
 }
+
 .header {
 
     .nav-container {
-
+        
         // -------- Mobile ---------
         @include mobile {
             display: grid;
@@ -51,14 +52,25 @@
             .icons-ul {
                 @include flex-center;
                 gap: 15px;
-    
+
+                // -------- Mobile ---------
+                @include mobile {
+                    gap: 0;
+                }
+
                 li {
                     a {
                         i{
                             display: block;
                             font-size: 20px;
                             padding: 15px;
-                            color: $white;
+                            color: $white-01;
+
+                            transition: color 0.3s;
+
+                            &:hover {
+                                color: $white-03;
+                            }
                         }
                         
                     }
@@ -77,8 +89,8 @@
             
             z-index: 999;
 
-            background-color: $dark-blue;
-            
+            background-color: $white-01;
+
             // -------- Mobile ---------
             @include mobile {
                 grid-area: menu-area;
@@ -92,15 +104,19 @@
 
             .menu-logo {
                 @include flex-center;
+                
+                a {
+                    @include flex-center;
+                    img {
+                        max-width: 90%;
     
-                img {
-                    max-width: 90%;
-
-                    // -------- Mobile ---------
-                    @include mobile {
-                        max-width: 70%;
+                        // -------- Mobile ---------
+                        @include mobile {
+                            max-width: 70%;
+                        }
                     }
                 }
+                
             }
             .menu-icon {
                 display: none;
@@ -177,7 +193,9 @@
         
         .nav {
             @include flex-center;
-            
+
+            background-color: $white-01;
+
             // -------- Mobile ---------
             @include mobile {
                 grid-area: nav-area;
@@ -203,7 +221,7 @@
                 border-radius: 30px;
                 border: 4px solid $black;
                 
-                background-color: $white;
+                background-color: $white-01;
                 
                 // -------- Mobile ---------
                 @include mobile {
@@ -251,7 +269,7 @@
                             width: 100%;
 
                             &:hover {
-                                background-color: $gray;
+                                background-color: $white-02;
                                 
                             }
                         }
@@ -264,6 +282,8 @@
                             font-size: 14px;
 
                             color: $black;
+
+                            transition: transform 0.2s;              
                         }
                     }
     
@@ -276,25 +296,21 @@
                         }
                     }
                 }
-                .li-services{
+                .li-services, .li-portfolio {
                     position: relative;
 
-                    &:hover .services{
-                        top: 54px;
-                        opacity: 1;
-                        pointer-events: initial;
+                    // -------- Desktop ---------
+                    @include desktop {
+                        &:hover .services, &:hover .portfolio {
+                            top: 54px;
+                            opacity: 1;
+                            pointer-events: initial;
+                        }              
+                        &:hover i, &:hover i {
+                            transform: rotate(-90deg);
+                        }
                     }
                 }
-                .li-portfolio {
-                    position: relative;
-
-                    &:hover .portfolio{
-                        top: 54px;
-                        opacity: 1;
-                        pointer-events: initial;                  
-                    }            
-                }
-    
                 .services, .portfolio {
                     position: absolute;
                     top: 70px;
@@ -311,9 +327,9 @@
                     opacity: 0;
                     pointer-events: none;
     
-                    background-color: $white;
+                    background-color: $white-01;
     
-                    transition: top 0.4s;
+                    transition: top 0.4s ease-in-out;
 
                     li {
                         height: 54px;
@@ -336,18 +352,35 @@
                         border: none;
                         pointer-events: initial;
 
-                        background-color: $blue;
-
                         transition: max-height 0.4s ease-in;
+                        
+                        background-color: $white-03;
+
+                        a {
+                            padding-left: 25px;                          
+                        }
                     }
                 }
                 .services-active {
-                    @include submenu-active;
-                    max-height: 108px;
+                    // -------- Mobile ---------
+                    @include mobile {
+                        @include submenu-active;
+                        max-height: 108px;  
+                    }
                 }
                 .portfolio-active {
-                    @include submenu-active;
-                    max-height: 162px;
+                    // -------- Mobile ---------
+                    @include mobile {
+                        @include submenu-active;
+                        max-height: 162px;
+                    }
+                }
+
+                .icon-active {
+                    // -------- Mobile ---------
+                    @include mobile {
+                        transform: rotate(-90deg);
+                    }
                 }
                 
             }
