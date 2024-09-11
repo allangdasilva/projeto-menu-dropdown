@@ -195,7 +195,9 @@
             @include flex-center;
 
             background-color: $white-01;
-
+            
+            z-index: 997;
+            
             // -------- Mobile ---------
             @include mobile {
                 grid-area: nav-area;
@@ -392,4 +394,185 @@
         }
     }
     
+}
+.main {
+    padding-block: 15px;
+
+    .art-container {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        .title {
+            width: 100%;
+            max-width: 1180px;
+
+            margin: 0 auto;
+            padding: 20px;
+            margin-block: 15px;
+
+            background-color: $orange;
+
+            &-01, &-02, &-03 {
+                @include flex-center;
+                gap: 20px;
+                height: 90px;
+                text-transform: uppercase;
+            }
+            h2 {
+                font-size: 3.5em;
+                font-weight: 500;
+            }
+            h3 {
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 3.5em;
+                font-weight: 300;
+                font-style: italic;
+                letter-spacing: -4px;
+            }
+            .shape-01 {
+                height: 50px;
+                width: 140px;
+
+                overflow: hidden;
+
+                background-color: $blue;
+            }
+            .shape-02 {
+                height: 120px;
+                width: 120px;
+                
+                overflow: hidden;
+
+                transform: translateY(40px) rotate(20deg);
+
+                background-color: $blue;
+            }
+            .shape-03 {
+                height: 50px;
+                width: 90px;
+
+                overflow: hidden;
+
+                background-color: $blue;
+            }
+            img {
+                height: 100%;
+                width: 100%;
+
+                object-fit: contain;
+            }
+            .title-slide {
+                @include flex-center;
+                flex-direction: column;
+
+                position: relative;
+
+                height: 80px;
+                width: 100%;
+
+                overflow: hidden;
+                
+                .is-visible {
+                    position: relative;
+                    opacity: 1;
+                    top: 0;
+
+                    animation: slide-in 1s ease-in-out;
+                }
+                .is-hidden {
+                    position: absolute;
+                    opacity: 0;
+                    top: -85px;
+
+                    animation: slide-out 0.5s ease-in-out;
+                }
+                @keyframes slide-in {
+                    0% {
+                        top: -85px;
+                        opacity: 0;
+                    }
+                    50% {
+                        top: 20px;
+                    }
+                    100% {
+                        top: 0;
+                        opacity: 1;
+                    }
+                }
+                @keyframes slide-out {
+                    from {
+                        top: 0px;
+                        opacity: 1;
+                    }
+                    to {
+                        top: 85px;
+                        opacity: 0;
+                    }
+                }
+            }
+        
+        }
+        .content {
+            display: grid;
+            grid-template-columns: 1fr repeat(4, minmax(auto, 280px)) 1fr;
+            grid-template-areas: '. area-01 area-01 area-02 area-03 .';
+            grid-auto-rows: 310px;
+            gap: 20px;
+
+            &-01 {
+                grid-area: area-01;
+                background-color: $orange;
+
+                overflow: hidden;
+
+                border-radius: 10px
+            }
+            &-02 {
+                grid-area: area-02;
+            }
+            &-03 {
+                grid-area: area-03;
+            }
+
+            &-02, &-03 {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-auto-rows: 50% 50%;
+                
+                overflow: hidden;
+
+                background-color: $orange;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+
+                object-fit: contain;
+            }
+            .c-image {
+                border-radius: 10px;
+
+                background-color: $blue;
+            }
+            .c-text {
+                display: flex;
+                flex-direction: column;
+
+                padding: 10px;
+
+                h5 {
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+                p {
+                    font-weight: 400;
+
+                    &:last-child {
+                        font-weight: 300;
+                        margin-top: 5px;
+                    }
+                }
+            }
+        }
+    }
 }
