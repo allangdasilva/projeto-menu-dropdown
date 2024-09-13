@@ -29,7 +29,7 @@
         .icons {
             @include flex-center;
     
-            background-color: $black;
+            background-color: $pink;
             
             z-index: 998;
 
@@ -260,7 +260,7 @@
                         transition: background-color 0.3s, color 0.2s;
 
                         &:hover {
-                            color: $orange;
+                            color: $pink;
                         }
                         
                         // -------- Mobile ---------
@@ -406,121 +406,96 @@
 
         background-color: $white-01;
 
-        .title {
+        .text {
             display: grid;
-            grid-template-columns: 1fr;
-
-            padding: 30px 10px;
+            grid-template-columns: 1fr minmax(auto, 1100px) 1fr;
+            grid-template-areas: '. text-area .';
+            gap: 20px;
             
+            padding-block: 80px;
 
-            &-01, &-02,&-03 {
-                position: relative;
-
-                @include flex-center;
+            // -------- Mobile ---------
+            @include mobile {
                 gap: 10px;
 
-                text-align: center;
-                text-transform: uppercase;
+                padding-block: 40px;
             }
-            &-03 {
-                flex-wrap: wrap;
-            }
-            h2 {
-                font-size: clamp(2rem, 4vw, 4rem);
-                font-weight: 600;
+
+            .box-text {
+                grid-area: text-area;
                 
-                white-space: nowrap;
-
-                color: $black;
-            }
-            h3 {
-                font-family: 'Times New Roman', Times, serif;
-                font-size: clamp(1.1rem, 4vw, 3rem);
-                font-weight: 500;
-                font-style: italic;   
+                max-width: 620px;
                 
-                color: $gray;
-            }
-            #txt-01, #txt-02 {
-                font-size: clamp(2.5rem, 4vw, 4rem);
-                color: $orange;
-            }
-            .shape-01 {
-                height: 40px;
-                width: 120px;
+                span {
+                    font-size: 2.6rem;
+                    font-weight: 450;
+                    color: $black;
+                }
+                .name-text {
+                    display: block;
 
-                border-radius: 25px;
-                border: 3px solid $black;
+                    font-size: initial;
+                    font-weight: 300;
+                    font-style: italic;
 
-                overflow: hidden;
-            }
-            .shape-03 {
-                height: 40px;
-                width: 75px;
-
-                border-radius: 25px;
-                border: 3px solid $black;
-
-                overflow: hidden;
-            }
-            img {
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-            }
-            .title-slide {
-                @include flex-center;
-                flex-direction: column;
-
-                position: relative;
-
-                width: 100%;
-
-                overflow: hidden;
-
-                .is-visible {
+                    color: $gray;
+                }
+                .slide-text {
                     position: relative;
-                    opacity: 1;
-                    transform: translateY(0);
+                    display: inline-flex;
 
-                    animation: slide-in 1s ease-in-out;
-                }
-                .is-hidden {
-                    position: absolute;
-                    opacity: 0;
-                    transform: translateY(80px);
+                    overflow: hidden;
+                    
+                    .is-visible {
+                        position: relative;
+                        display: inline-block;
+                        opacity: 1;
 
-                    animation: slide-out 0.5s ease-in-out;
-                }
-                @keyframes slide-in {
-                    0% {
-                        transform: translateY(-80px);
+                        color: $pink;
+                        
+                        animation: slide-in 0.8s;
+                    }
+                    .is-hidden {
+                        position: absolute;
+                        display: inline-block;
+
                         opacity: 0;
+
+                        color: $pink;
+
+                        transform: translateY(100%);
+                        animation: slide-out 0.6s;
                     }
-                    50% {
-                        transform: translateY(15px);
+                    @keyframes slide-in {
+                        0% {
+                            transform: translateY(-100%);
+                            opacity: 0;
+                        }
+                        50% {
+                            transform: translateY(10%);
+                        }
+                        100% {
+                            transform: translateY(0);
+                            opacity: 1;
+                        }
                     }
-                    100% {
-                        transform: translateY(0);
-                        opacity: 1;
-                    }
-                }
-                @keyframes slide-out {
-                    from {
-                        transform: translateY(0);
-                        opacity: 1;
-                    }
-                    to {
-                        transform: translateY(80px);
-                        opacity: 0;
+                    @keyframes slide-out  {
+                        0% {
+                            transform: translateY(0);
+                            opacity: 1;
+                        }
+                        100%{
+                            transform: translateY(100%);
+                            opacity: 0;
+                        }
                     }
                 }
             }
-        
         }
+        
         .content {
             display: grid;
-            grid-template-columns: 1fr repeat(4, minmax(auto, 280px)) 1fr;
+            grid-template-columns: 1fr repeat(4, minmax(auto, 260px)) 1fr;
             grid-template-areas: '. area-01 area-01 area-02 area-03 .';
             grid-auto-rows: 310px;
             gap: 20px;
@@ -542,66 +517,117 @@
                 ;
                 }
             }
+            .box-01, .box-02, .box-03 {
+                position: relative;
 
-            &-01 {
-                grid-area: area-01;
-                background-color: $orange;
-
-                overflow: hidden;
-
-                border-radius: 5px
-            }
-            &-02 {
-                grid-area: area-02;
-            }
-            &-03 {
-                grid-area: area-03;
-            }
-
-            &-02, &-03 {
                 display: grid;
                 grid-template-columns: 1fr;
-                grid-auto-rows: 50% 50%;
-                
-                overflow: hidden;
+                grid-template-rows: 70% 30%;
 
-                // -------- Mobile ---------
-                @include mobile {
-                    grid-auto-rows: 70% 30%;
+                z-index: 995;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    transform: translate(-50%, 1%);
+
+                    width: 90%;
+                    height: 70%;
+
+                    border-radius: 0 0 0 20px;
+                    border: 4px solid $black;
+
+                    background-color: transparent;
+
+                    z-index: -1;
                 }
-            }
-            img {
-                width: 100%;
-                height: 100%;
 
-                object-fit: cover;
-            }
-            .c-image {
-                border-radius: 5px;
-                overflow: hidden;
-            }
-            .c-text {
-                display: flex;
-                flex-direction: column;
+                .c-image {
+                    border: 4px solid $black;
+                    border-radius: 0 20px 0 20px;
+                    overflow: hidden;
 
-                padding: 10px;
+                    background-color: $pink;
+                    
+                    img {
+                        height: 100%;
+                        width: 100%;
 
-                a {
-                    color: $orange;
+                        object-fit: cover;
+
+                        transform: scale(1.05);
+                        filter: brightness(70%);
+
+                        transition: transform 0.3s, filter 0.2s;
+                        &:hover {
+                            transform: scale(1);
+                            filter: brightness(50%);
+                        }
+                    }
                 }
-                h5 {
-                    font-size: 16px;
-                    font-weight: 600;
-                }
-                p {
-                    font-weight: 400;
+                .c-text {
+                    padding: 10px 0 0 5px;
+                    color: $black;
 
-                    &:last-child {
-                        font-weight: 300;
-                        margin-top: 5px;
+                    a {
+                        font-size: 1.2rem;
+                        color: $black;
+
+                        transition: color 0.3s;
+
+                        &:hover {
+                            color: $pink;
+                        }
+                    }
+                    p:last-child {
+                        padding-top: 5px;
                     }
                 }
             }
+            .box-01 {
+                grid-area: area-01;
+            }
+            .box-02 {
+                grid-area: area-02;
+            }
+            .box-03 {
+                grid-area: area-03;
+            }
+            
+            .box-01 {
+                grid-template-rows: 100%;
+
+                &::after {
+                    height: 100%;
+                }
+
+                .c-text-desktop {
+                    display: none;
+                }
+
+                // -------- Mobile ---------
+                @include mobile {
+                    &::after {
+                        display: none;
+                    }
+                }
+
+                // -------- S-size ---------
+                @include s-size {
+                    grid-template-rows: 70% 30%;
+
+                    &::after {
+                        display: initial;
+                        height: 70%;
+                    }
+
+                    .c-text-desktop{
+                        display: initial;
+                    }
+                }
+            }
+            
         }
     }
 }

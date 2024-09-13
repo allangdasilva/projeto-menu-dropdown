@@ -18,7 +18,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #07090D;
+  background-color: #F2055C;
   z-index: 998;
 }
 @media screen and (max-width: 960px) {
@@ -221,7 +221,7 @@
   transition: background-color 0.3s, color 0.2s;
 }
 .header .nav-container .nav .nav-ul li a:hover, .header .nav-container .nav .nav-ul li .dropdown-btn:hover {
-  color: #F25D07;
+  color: #F2055C;
 }
 @media screen and (max-width: 960px) {
   .header .nav-container .nav .nav-ul li a, .header .nav-container .nav .nav-ul li .dropdown-btn {
@@ -335,88 +335,62 @@
   padding-bottom: 15px;
   background-color: #F9F9F9;
 }
-.main .art-container .title {
+.main .art-container .text {
   display: grid;
-  grid-template-columns: 1fr;
-  padding: 30px 10px;
+  grid-template-columns: 1fr minmax(auto, 1100px) 1fr;
+  grid-template-areas: ". text-area .";
+  gap: 20px;
+  padding-block: 80px;
 }
-.main .art-container .title-01, .main .art-container .title-02, .main .art-container .title-03 {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  text-align: center;
-  text-transform: uppercase;
+@media screen and (max-width: 960px) {
+  .main .art-container .text {
+    gap: 10px;
+    padding-block: 40px;
+  }
 }
-.main .art-container .title-03 {
-  flex-wrap: wrap;
+.main .art-container .text .box-text {
+  grid-area: text-area;
+  max-width: 620px;
 }
-.main .art-container .title h2 {
-  font-size: clamp(2rem, 4vw, 4rem);
-  font-weight: 600;
-  white-space: nowrap;
+.main .art-container .text .box-text span {
+  font-size: 2.6rem;
+  font-weight: 450;
   color: #07090D;
 }
-.main .art-container .title h3 {
-  font-family: "Times New Roman", Times, serif;
-  font-size: clamp(1.1rem, 4vw, 3rem);
-  font-weight: 500;
+.main .art-container .text .box-text .name-text {
+  display: block;
+  font-size: initial;
+  font-weight: 300;
   font-style: italic;
   color: #707070;
 }
-.main .art-container .title #txt-01, .main .art-container .title #txt-02 {
-  font-size: clamp(2.5rem, 4vw, 4rem);
-  color: #F25D07;
-}
-.main .art-container .title .shape-01 {
-  height: 40px;
-  width: 120px;
-  border-radius: 25px;
-  border: 3px solid #07090D;
-  overflow: hidden;
-}
-.main .art-container .title .shape-03 {
-  height: 40px;
-  width: 75px;
-  border-radius: 25px;
-  border: 3px solid #07090D;
-  overflow: hidden;
-}
-.main .art-container .title img {
-  height: 100%;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.main .art-container .title .title-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.main .art-container .text .box-text .slide-text {
   position: relative;
-  width: 100%;
+  display: inline-flex;
   overflow: hidden;
 }
-.main .art-container .title .title-slide .is-visible {
+.main .art-container .text .box-text .slide-text .is-visible {
   position: relative;
+  display: inline-block;
   opacity: 1;
-  transform: translateY(0);
-  animation: slide-in 1s ease-in-out;
+  color: #F2055C;
+  animation: slide-in 0.8s;
 }
-.main .art-container .title .title-slide .is-hidden {
+.main .art-container .text .box-text .slide-text .is-hidden {
   position: absolute;
+  display: inline-block;
   opacity: 0;
-  transform: translateY(80px);
-  animation: slide-out 0.5s ease-in-out;
+  color: #F2055C;
+  transform: translateY(100%);
+  animation: slide-out 0.6s;
 }
 @keyframes slide-in {
   0% {
-    transform: translateY(-80px);
+    transform: translateY(-100%);
     opacity: 0;
   }
   50% {
-    transform: translateY(15px);
+    transform: translateY(10%);
   }
   100% {
     transform: translateY(0);
@@ -424,18 +398,18 @@
   }
 }
 @keyframes slide-out {
-  from {
+  0% {
     transform: translateY(0);
     opacity: 1;
   }
-  to {
-    transform: translateY(80px);
+  100% {
+    transform: translateY(100%);
     opacity: 0;
   }
 }
 .main .art-container .content {
   display: grid;
-  grid-template-columns: 1fr repeat(4, minmax(auto, 280px)) 1fr;
+  grid-template-columns: 1fr repeat(4, minmax(auto, 260px)) 1fr;
   grid-template-areas: ". area-01 area-01 area-02 area-03 .";
   grid-auto-rows: 310px;
   gap: 20px;
@@ -451,55 +425,91 @@
     grid-template-areas: ". area-01 area-01 area-01 area-01 ." ". area-02 area-02 area-02 area-02 ." ". area-03 area-03 area-03 area-03 .";
   }
 }
-.main .art-container .content-01 {
-  grid-area: area-01;
-  background-color: #F25D07;
-  overflow: hidden;
-  border-radius: 5px;
-}
-.main .art-container .content-02 {
-  grid-area: area-02;
-}
-.main .art-container .content-03 {
-  grid-area: area-03;
-}
-.main .art-container .content-02, .main .art-container .content-03 {
+.main .art-container .content .box-01, .main .art-container .content .box-02, .main .art-container .content .box-03 {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  grid-auto-rows: 50% 50%;
+  grid-template-rows: 70% 30%;
+  z-index: 995;
+}
+.main .art-container .content .box-01::after, .main .art-container .content .box-02::after, .main .art-container .content .box-03::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 1%);
+  width: 90%;
+  height: 70%;
+  border-radius: 0 0 0 20px;
+  border: 4px solid #07090D;
+  background-color: transparent;
+  z-index: -1;
+}
+.main .art-container .content .box-01 .c-image, .main .art-container .content .box-02 .c-image, .main .art-container .content .box-03 .c-image {
+  border: 4px solid #07090D;
+  border-radius: 0 20px 0 20px;
   overflow: hidden;
+  background-color: #F2055C;
 }
-@media screen and (max-width: 960px) {
-  .main .art-container .content-02, .main .art-container .content-03 {
-    grid-auto-rows: 70% 30%;
-  }
-}
-.main .art-container .content img {
-  width: 100%;
+.main .art-container .content .box-01 .c-image img, .main .art-container .content .box-02 .c-image img, .main .art-container .content .box-03 .c-image img {
   height: 100%;
+  width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  transform: scale(1.05);
+  filter: brightness(70%);
+  transition: transform 0.3s, filter 0.2s;
 }
-.main .art-container .content .c-image {
-  border-radius: 5px;
-  overflow: hidden;
+.main .art-container .content .box-01 .c-image img:hover, .main .art-container .content .box-02 .c-image img:hover, .main .art-container .content .box-03 .c-image img:hover {
+  transform: scale(1);
+  filter: brightness(50%);
 }
-.main .art-container .content .c-text {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
+.main .art-container .content .box-01 .c-text, .main .art-container .content .box-02 .c-text, .main .art-container .content .box-03 .c-text {
+  padding: 10px 0 0 5px;
+  color: #07090D;
 }
-.main .art-container .content .c-text a {
-  color: #F25D07;
+.main .art-container .content .box-01 .c-text a, .main .art-container .content .box-02 .c-text a, .main .art-container .content .box-03 .c-text a {
+  font-size: 1.2rem;
+  color: #07090D;
+  transition: color 0.3s;
 }
-.main .art-container .content .c-text h5 {
-  font-size: 16px;
-  font-weight: 600;
+.main .art-container .content .box-01 .c-text a:hover, .main .art-container .content .box-02 .c-text a:hover, .main .art-container .content .box-03 .c-text a:hover {
+  color: #F2055C;
 }
-.main .art-container .content .c-text p {
-  font-weight: 400;
+.main .art-container .content .box-01 .c-text p:last-child, .main .art-container .content .box-02 .c-text p:last-child, .main .art-container .content .box-03 .c-text p:last-child {
+  padding-top: 5px;
 }
-.main .art-container .content .c-text p:last-child {
-  font-weight: 300;
-  margin-top: 5px;
+.main .art-container .content .box-01 {
+  grid-area: area-01;
+}
+.main .art-container .content .box-02 {
+  grid-area: area-02;
+}
+.main .art-container .content .box-03 {
+  grid-area: area-03;
+}
+.main .art-container .content .box-01 {
+  grid-template-rows: 100%;
+}
+.main .art-container .content .box-01::after {
+  height: 100%;
+}
+.main .art-container .content .box-01 .c-text-desktop {
+  display: none;
+}
+@media screen and (max-width: 960px) {
+  .main .art-container .content .box-01::after {
+    display: none;
+  }
+}
+@media screen and (max-width: 580px) {
+  .main .art-container .content .box-01 {
+    grid-template-rows: 70% 30%;
+  }
+  .main .art-container .content .box-01::after {
+    display: initial;
+    height: 70%;
+  }
+  .main .art-container .content .box-01 .c-text-desktop {
+    display: initial;
+  }
 }/*# sourceMappingURL=body.css.map */
