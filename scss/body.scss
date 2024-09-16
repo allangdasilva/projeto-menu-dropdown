@@ -14,7 +14,8 @@
 .header {
 
     .nav-container {
-        
+        background-color: $white-01;
+
         // -------- Mobile ---------
         @include mobile {
             display: grid;
@@ -398,26 +399,21 @@
     
 }
 .main {
-
+    // Article
     .article-container {
-        display: grid;
-        grid-template-columns: 1fr;
         padding-bottom: 15px;
 
         background-color: $white-01;
 
         .article-text {
-            display: grid;
-            grid-template-columns: 1fr minmax(auto, 1100px) 1fr;
-            grid-template-areas: '. text-area .';
-            gap: 20px;
-            
+            width: 96%;
+            max-width: 1100px;
+            margin: 0 auto;
+        
             padding-block: 80px;
 
             // -------- Mobile ---------
             @include mobile {
-                gap: 10px;
-
                 padding-block: 40px;
             }
 
@@ -438,7 +434,7 @@
                     font-weight: 300;
                     font-style: italic;
 
-                    color: $gray;
+                    color: $black;
                 }
                 .slide-text {
                     position: relative;
@@ -493,12 +489,12 @@
             }
         }
         
-        .content {
+        .article-content {
             display: grid;
             grid-template-columns: 1fr repeat(4, minmax(auto, 260px)) 1fr;
             grid-template-areas: '. area-01 area-01 area-02 area-03 .';
             grid-auto-rows: 310px;
-            gap: 20px;
+            gap: 10px;
 
             // -------- Mobile ---------
             @include mobile {
@@ -506,7 +502,6 @@
                 '. area-01 area-01 area-01 area-01 .'
                 '. area-02 area-02 area-03 area-03 .'
                 ;
-                gap: 10px;
 
                 // -------- S-size ---------
                 @include s-size {
@@ -630,41 +625,81 @@
             
         }
     }
-    
+
+    // Section 01
     .section-01-container {
-        padding-block: 80px 0px;
-
-        max-width: 1100px;
-        margin: 0 auto;
-
-        overflow: hidden;
+        padding-block: 100px 0px;
         
-        .slide-images {
-            @include flex-center;
-            width: calc(200px * 18);
-            
-            -webkit-animation: slide-images 5s linear infinite;
-            animation: slide-images 30s linear infinite;
+        background-color: $white-01;
 
-            .image-content {
+        .slide-images {
+            position: relative;
+
+            height: 100px;
+            width: 100%;
+            max-width: 1100px;
+
+            margin: 0 auto;
+
+            mask-image: linear-gradient(
+                to right,
+                rgba(0,0,0,0),
+                rgba(0,0,0,1) 10%,
+                rgba(0,0,0,1) 90%,
+                rgba(0,0,0,0)
+            );
+
+            overflow: hidden;
+        
+            .item {
                 @include flex-center;
 
+                position: absolute;
+                left: calc(200px * 9);
+
+                height: 100px;
+                width: 200px;
+
+                animation: scrollLeft 40s linear infinite;
+
                 img {
-                    padding-inline: 50px;
-                    width: 90%;
-                    
-                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+
+                    object-fit: contain;
                 }
             }
-        }
-        @keyframes slide-images {
-            0% {
-                -webkit-transform: translateX(0);
-                transform: translateX(0);
+            .item-01 {
+                animation-delay: calc(40s / 9 * (9 - 1) * -1);
             }
-            100% {
-                -webkit-transform: translateX(calc(-200px * 9));
-                transform: translateX(calc(-200px * 9));
+            .item-02 {
+                animation-delay: calc(40s / 9 * (9 - 2) * -1);
+            }
+            .item-03 {
+                animation-delay: calc(40s / 9 * (9 - 3) * -1);
+            }
+            .item-04 {
+                animation-delay: calc(40s / 9 * (9 - 4) * -1);
+            }
+            .item-05 {
+                animation-delay: calc(40s / 9 * (9 - 5) * -1);
+            }
+            .item-06 {
+                animation-delay: calc(40s / 9 * (9 - 6) * -1);
+            }
+            .item-07 {
+                animation-delay: calc(40s / 9 * (9 - 7) * -1);
+            }
+            .item-08 {
+                animation-delay: calc(40s / 9 * (9 - 8) * -1);
+            }
+            .item-09 {
+                animation-delay: calc(40s / 9 * (9 - 9) * -1);
+            }
+            @keyframes scrollLeft {
+                100% {
+                    left: -200px;
+                }
             }
         }
         .section-01-text {
@@ -676,11 +711,138 @@
             p {
                 max-width: 400px;
 
-                font-size: initial;
-                font-weight: 300;
-                font-style: italic;
+                color: $black;
+            }
+        }
+    }
 
-                color: $gray;
+    // Section 02
+    .section-02 {
+        padding-block: 20px 40px;
+
+        .section-02-container {
+            display: grid;
+            grid-template-columns: 0.6fr 0.4fr;
+            grid-template-areas: 'content-area image-area';
+            gap: 10px;
+
+            width: 96%;
+            max-width: 1100px;
+            margin: 0 auto;
+
+            padding: 10px;
+            border-radius: 5px;
+            background-color: $black;
+
+            // -------- Mobile ---------
+            @include mobile {
+                grid-template-columns: 1fr;
+                grid-template-areas: 
+                'content-area' 
+                'image-area'
+                ;
+            }
+
+            .section-02-content {
+                grid-area: content-area;
+
+                padding-inline: 40px;
+
+                color: $white-03;
+
+                // -------- Mobile ---------
+                @include mobile {
+                    padding-inline: 10px;
+                }
+
+                .box-01 {
+                    padding-block: 40px;
+
+                    // -------- Size-400 ---------
+                    @include size-400 {
+                        word-break: break-all;
+                    }
+
+                    span {
+                        font-size: initial;
+                        font-weight: 300;
+                        font-style: italic;
+                    }
+                    h2 {
+                        text-transform: uppercase;
+                        
+                        font-size: 2.4rem;
+                        font-weight: 450;
+
+                        // -------- S-size ---------
+                        @include s-size {
+                            font-size: 2.2rem;
+                        }
+                    }
+                }
+                .box-02 {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 10px;
+
+                    padding-bottom: 20px;
+
+                    // -------- Size-400 ---------
+                    @include size-400 {
+                        grid-template-columns: 1fr;
+                    }
+
+                    i {
+                        margin-bottom: 5px;
+                        padding: 10px;
+
+                        border: 2px solid $white-01;
+                        border-radius: 10px;
+                        
+                        background-color: $gray;
+                        color: $white-01;
+                    }
+                    h3 {
+                        font-weight: 500;
+                    }
+                }
+            }
+            .section-02-image {
+                grid-area: image-area;
+                position: relative;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+
+                    border-radius: 5px;
+                    object-fit: cover;
+                }
+                .image-link {
+                    @include flex-center;
+
+                    position: absolute;
+                    left: 20px;
+                    bottom: 20px;
+
+                    height: 60px;
+                    width: 60px;
+
+                    border-radius: 50%;
+                    overflow: hidden;
+
+                    background-color: $pink;
+
+                    a {
+                        display: block;
+                    }
+                    i {
+                        padding: 10px;
+                        font-size: 1.6rem;
+                        transform: rotate(45deg);
+                        color: $white-01;
+                    }
+                }
             }
         }
     }

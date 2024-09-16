@@ -17,6 +17,11 @@
         @content;
     }
 }
+@mixin size-400 {
+    @media screen and (max-width: 400px) {
+        @content;
+    }
+}
 @mixin desktop {
     @media screen and (min-width: 960px) {
         @content;
