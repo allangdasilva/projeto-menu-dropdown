@@ -12,12 +12,12 @@
         @content;
     }
 }
-@mixin s-size {
-    @media screen and (max-width: 580px) {
+@mixin width-620 {
+    @media screen and (max-width: 620px) {
         @content;
     }
 }
-@mixin size-400 {
+@mixin width-400 {
     @media screen and (max-width: 400px) {
         @content;
     }
